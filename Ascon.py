@@ -350,21 +350,4 @@ def main():
 
 
 if __name__ == "__main__":
-    
     main()
-
-    
-
-
-
-    """pl, t = asc.decrypt(b'\xceth\xb6n\xffY\x7fM\x89\xd4\x85`\x02\xbf^7\xf2J\x92\xd7\xb0U\x95\xac\xc6\x9d\xac\xec\xa8\xff\xc6\xa4\xe6j\x919\xf0\xb8P&\x87\xff\xb0}\xc8B.', b'\xa4\xe6j\x919\xf0\xb8P&\x87\xff\xb0}\xc8B.')
-        
-    hex_string = "6161616161616161616161616161616161616161616161616161616161616161"
-    hex_string = hex_string[2:]
-
-    # Преобразуем строку шестнадцатеричных значений в байты
-    byte_array = bytes.fromhex(hex_string)
-
-    # Преобразуем байты в строку ASCII
-    ascii_string = byte_array.decode('ascii')
-    print(ascii_string)"""
