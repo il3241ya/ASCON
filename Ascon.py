@@ -84,18 +84,8 @@ class Ascon():
         for i in range(12 - Rounds, 12):
             # Addition of Constants 
             State[2] ^= self.RoundsConstants[i]
+
             # Substitution Layer
-            
-            """
-            Algo from documentation
-            x0 ^= x4; x4 ^= x3; x2 ^= x1;
-            t0 = x0; t1 = x1; t2 = x2; t3 = x3; t4 = x4;
-            t0 =~ t0; t1 =~ t1; t2 =~ t2; t3 =~ t3; t4 =~ t4;
-            t0 &= x1; t1 &= x2; t2 &= x3; t3 &= x4; t4 &= x0;
-            x0 ^= t1; x1 ^= t2; x2 ^= t3; x3 ^= t4; x4 ^= t0;
-            x1 ^= x0; x0 ^= x4; x3 ^= x2; x2 =~ x2;
-            """
-            
             # x0 ^= x4; x4 ^= x3; x2 ^= x1;
             State[0] ^= State[4]
             State[4] ^= State[3] 
@@ -247,8 +237,10 @@ class Ascon():
                 bytes([self.State[4] // (256 ** (8 - 1 - i)) % 256 for i in range(8)])
 
 
-        if len(self.PlainText) > 0 and self.Tag == self.CypherText[-16:]: self.Eror = False
-        else: self.Eror = True
+        if len(self.PlainText) > 0 and self.Tag == self.CypherText[-16:]: 
+            self.Eror = False
+        else: 
+            self.Eror = True
 
         return (self.PlainText, self.Eror)
 
@@ -337,17 +329,6 @@ def main():
             with open("output.txt", 'wb') as file_out:
                 print(plaintext)
                 file_out.write(plaintext[2:-16])
-            
-
-
-
-            
-
-            
-
-
-
-
 
 if __name__ == "__main__":
     main()
